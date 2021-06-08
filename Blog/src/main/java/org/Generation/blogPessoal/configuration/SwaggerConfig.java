@@ -1,4 +1,4 @@
-package org.Generation.blogPessoal.configration;
+package org.Generation.blogPessoal.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
 	public Docket docket(){
 	return new Docket(DocumentationType.SWAGGER_2)
 			.select()
-			.apis(RequestHandlerSelectors.basePackage("org.generation.blogPessoalProjeto.controller"))
+			.apis(RequestHandlerSelectors.basePackage("org.Generation.blogPessoal.controller"))
 			.paths(PathSelectors.any())
 			.build()
 			.apiInfo(apiInfo());
@@ -36,8 +36,8 @@ public class SwaggerConfig {
 	}
 	
 	private Contact contact(){
-		return new Contact("Kyem Araújo",
-		"https://github.com/Kyem-Araujo",
+		return new Contact("Caroline Miranda",
+		"https://github.com/carol-mira",
 		"Java Full Stack Developer");
 	}
 }

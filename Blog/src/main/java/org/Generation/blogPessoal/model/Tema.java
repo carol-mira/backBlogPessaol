@@ -16,29 +16,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "tb_tema")
 public class Tema {
-
-	@Id	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
 	
-	@NotNull
-	private String descricao;
-	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long id;
+	@NotNull private String descricao;
 	private long qtd;
 	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
-	
-	
-
-	public long getQtd() {
-		return qtd;
-	}
-
-	public void setQtd(long qtd) {
-		this.qtd = qtd;
-	}
 
 	public long getId() {
 		return id;
@@ -56,6 +41,14 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
+	public long getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(long qtd) {
+		this.qtd = qtd;
+	}
+
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
@@ -63,5 +56,4 @@ public class Tema {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
 }
